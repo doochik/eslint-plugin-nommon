@@ -20,6 +20,8 @@
     "eslint": "^6.7.1",
     "eslint-config-eslint": "^5.0.1",
     "eslint-plugin-node": "^6.0.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
     "mocha": "^6.2.2"
   },
   "peerDependencies": {
@@ -41,5 +43,17 @@
   "homepage": "https://github.com/doochik/eslint-plugin-ru-typography#readme",
   "engines": {
     "node": ">=8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add",
+      "npm run unit"
+    ]
   }
 }
