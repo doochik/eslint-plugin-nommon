@@ -1,0 +1,4 @@
+.idea/
+tests/
+.eslint*
+.travis.yml

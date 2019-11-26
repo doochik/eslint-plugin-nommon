@@ -1,0 +1,45 @@
+{
+  "name": "eslint-plugin-nommon",
+  "version": "0.0.1",
+  "description": "ESLint plugin for nommon",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "nommon",
+    "jpath"
+  ],
+  "author": "Aleksei Androsov",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "unit": "mocha tests --recursive",
+    "test": "npm run lint && npm run unit"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.0",
+    "eslint-config-eslint": "^5.0.1",
+    "eslint-plugin-node": "^10.0.0",
+    "mocha": "^6.2.2"
+  },
+  "peerDependencies": {
+    "eslint": "^6.0.0"
+  },
+  "license": "MIT",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doochik/eslint-plugin-ru-typography.git"
+  },
+  "bugs": {
+    "url": "https://github.com/doochik/eslint-plugin-ru-typography/issues"
+  },
+  "homepage": "https://github.com/doochik/eslint-plugin-ru-typography#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}
