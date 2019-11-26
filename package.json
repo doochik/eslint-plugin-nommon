@@ -17,9 +17,9 @@
     "test": "npm run lint && npm run unit"
   },
   "devDependencies": {
-    "eslint": "^6.0.0",
+    "eslint": "^6.7.1",
     "eslint-config-eslint": "^5.0.1",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^6.0.1",
     "mocha": "^6.2.2"
   },
   "peerDependencies": {
