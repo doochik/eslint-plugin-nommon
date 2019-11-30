@@ -35,12 +35,12 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/doochik/eslint-plugin-ru-typography.git"
+    "url": "git+https://github.com/doochik/eslint-plugin-nommon.git"
   },
   "bugs": {
-    "url": "https://github.com/doochik/eslint-plugin-ru-typography/issues"
+    "url": "https://github.com/doochik/eslint-plugin-nommon/issues"
   },
-  "homepage": "https://github.com/doochik/eslint-plugin-ru-typography#readme",
+  "homepage": "https://github.com/doochik/eslint-plugin-nommon#readme",
   "engines": {
     "node": ">=8.0.0"
   },
