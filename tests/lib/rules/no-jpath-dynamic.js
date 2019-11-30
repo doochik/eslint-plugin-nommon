@@ -36,6 +36,11 @@ ruleTester.run("no-jpath-dynamic", rule, {
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
+            code: "var bar_baz = 'bar_baz'; no.jpath('.foo.' + bar_baz, data)",
+            output: "var bar_baz = 'bar_baz'; no.jpath('.foo[jpathVariable]', data, {jpathVariable: bar_baz})",
+            errors: [{ message: "Only static no.jpath allowed" }]
+        },
+        {
             code: "no.jpath('.foo.' + myVar1 + myVar2, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
