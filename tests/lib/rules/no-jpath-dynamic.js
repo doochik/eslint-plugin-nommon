@@ -31,7 +31,8 @@ ruleTester.run("no-jpath-dynamic", rule, {
 
     invalid: [
         {
-            code: "no.jpath('.a.' + myVar, data)",
+            code: "no.jpath('.foo.' + myVar, data)",
+            output: "no.jpath('.foo[jpathVariable]', data, {jpathVariable: myVar})",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
