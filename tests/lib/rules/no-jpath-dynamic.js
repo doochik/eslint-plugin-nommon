@@ -32,12 +32,12 @@ ruleTester.run("no-jpath-dynamic", rule, {
     invalid: [
         {
             code: "no.jpath('.foo.' + myVar, data)",
-            output: "no.jpath('.foo[jpathVariable]', data, {jpathVariable: myVar})",
+            output: "no.jpath('.foo[myVar]', data, { myVar })",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "var bar_baz = 'bar_baz'; no.jpath('.foo.' + bar_baz, data)",
-            output: "var bar_baz = 'bar_baz'; no.jpath('.foo[jpathVariable]', data, {jpathVariable: bar_baz})",
+            output: "var bar_baz = 'bar_baz'; no.jpath('.foo[bar_baz]', data, { bar_baz })",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
@@ -58,22 +58,22 @@ ruleTester.run("no-jpath-dynamic", rule, {
         },
         {
             code: "no.jpath(`.foo.${ bar }`, data)",
-            output: "no.jpath(`.foo[jpathVariable1]`, data, {jpathVariable1: bar})",
+            output: "no.jpath(`.foo[bar]`, data, { bar })",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath(`.foo.${ bar }.${ baz }`, data)",
-            output: "no.jpath(`.foo[jpathVariable1][jpathVariable2]`, data, {jpathVariable1: bar,jpathVariable2: baz})",
+            output: "no.jpath(`.foo[bar][baz]`, data, { bar, baz })",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath(`.[${SOME_VALUE}]`, data)",
-            output: "no.jpath(`.[jpathVariable1]`, data, {jpathVariable1: SOME_VALUE})",
+            output: "no.jpath(`.[SOME_VALUE]`, data, { SOME_VALUE })",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath(`.foo{.id === \"${foo}\"}`, data)",
-            output: "no.jpath(`.foo{.id === jpathVariable1}`, data, {jpathVariable1: foo})",
+            output: "no.jpath(`.foo{.id === foo}`, data, { foo })",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
