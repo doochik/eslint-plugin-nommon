@@ -1,13 +1,13 @@
 "use strict";
 
-const rule = require("../../../lib/rules/no-jpath-dynamic"),
+const rule = require("../../../lib/rules/no-dynamic-jpath"),
     RuleTester = require("eslint").RuleTester;
 
 const ruleTester = new RuleTester({
     parserOptions: { ecmaVersion: 2015 }
 });
 
-ruleTester.run("no-jpath-dynamic", rule, {
+ruleTester.run("no-dynamic-jpath", rule, {
     valid: [
         {
             code: "fn('.a', data)"
