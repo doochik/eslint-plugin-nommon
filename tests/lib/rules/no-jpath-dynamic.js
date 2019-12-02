@@ -22,10 +22,25 @@ ruleTester.run("no-jpath-dynamic", rule, {
             code: "no.jpath('.a', data)"
         },
         {
+            code: "no.jpath('.a' + '.b', data)"
+        },
+        {
+            code: "no.jpath('.a' + '.b' + '.c', data)"
+        },
+        {
+            code: "no.jpath('.a' + '.b' + '.c' + '.d', data)"
+        },
+        {
             code: "no.jpath(`.a`, data)"
         },
         {
+            code: "no.jpath(`.a` + `.b`, data)"
+        },
+        {
             code: "no.jpath(\".a\", data)"
+        },
+        {
+            code: "no.jpath(\".a\" + \".b\", data)"
         }
     ],
 
@@ -33,6 +48,12 @@ ruleTester.run("no-jpath-dynamic", rule, {
         {
             code: "no.jpath('.foo.' + myVar, data)",
             output: "no.jpath('.foo[myVar]', data, { myVar })",
+            errors: [{ message: "Only static no.jpath allowed" }]
+        },
+
+        {
+            code: "no.jpath('.foo.' + 'bar.' + myVar, data)",
+            output: "no.jpath('.foo.' + 'bar.' + myVar, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
