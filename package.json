@@ -17,15 +17,16 @@
     "test": "npm run lint && npm run unit"
   },
   "devDependencies": {
-    "eslint": "^6.7.1",
-    "eslint-config-eslint": "^5.0.1",
-    "eslint-plugin-node": "^6.0.1",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.4.3",
-    "mocha": "^6.2.2"
+    "eslint": "^7.1.0",
+    "eslint-config-eslint": "^6.0.0",
+    "eslint-plugin-jsdoc": "^15.12.2",
+    "eslint-plugin-node": "^9.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "mocha": "^7.1.2"
   },
   "peerDependencies": {
-    "eslint": "^6.0.0"
+    "eslint": "^6.0.0 || ^7.0.0"
   },
   "license": "MIT",
   "directories": {
@@ -52,7 +53,6 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "git add",
       "npm run unit"
     ]
   }
