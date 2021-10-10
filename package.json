@@ -12,6 +12,7 @@
   "author": "Aleksei Androsov",
   "main": "lib/index.js",
   "scripts": {
+    "prepare": "husky install",
     "lint": "eslint .",
     "unit": "mocha tests --recursive",
     "test": "npm run lint && npm run unit"
@@ -48,11 +49,6 @@
   "homepage": "https://github.com/doochik/eslint-plugin-nommon#readme",
   "engines": {
     "node": ">=8.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.js": [
