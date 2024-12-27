@@ -1,11 +1,7 @@
-"use strict";
-
 const rule = require("../../../lib/rules/no-dynamic-jpath"),
     RuleTester = require("eslint").RuleTester;
 
-const ruleTester = new RuleTester({
-    parserOptions: { ecmaVersion: 2015 }
-});
+const ruleTester = new RuleTester();
 
 ruleTester.run("no-dynamic-jpath", rule, {
     valid: [
@@ -83,45 +79,38 @@ ruleTester.run("no-dynamic-jpath", rule, {
             errors: [{ message: "Only static no.jpath allowed" }]
         },
 
+
         // no autofix
         {
             code: "no.jpath('.' + foo, data)",
-            output: "no.jpath('.' + foo, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
-        {
+         {
             code: "no.jpath(`.${ foo }`, data)",
-            output: "no.jpath(`.${ foo }`, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath('.foo.' + bar.baz, data)",
-            output: "no.jpath('.foo.' + bar.baz, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath('.foo.' + myVar1 + myVar2, data)",
-            output: "no.jpath('.foo.' + myVar1 + myVar2, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath(myVar, data)",
-            output: "no.jpath(myVar, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath(foo.bar, data)",
-            output: "no.jpath(foo.bar, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath(`.foo.${foo}-${bar}`, data)",
-            output: "no.jpath(`.foo.${foo}-${bar}`, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         },
         {
             code: "no.jpath('.foo.' + 'bar.' + myVar, data)",
-            output: "no.jpath('.foo.' + 'bar.' + myVar, data)",
             errors: [{ message: "Only static no.jpath allowed" }]
         }
     ]
